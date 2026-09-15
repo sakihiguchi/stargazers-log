@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --ink: #17202a;
+  --muted: #66737f;
+  --line: #dce4e8;
+  --paper: #f7faf8;
+  --card: #ffffff;
+  --accent: #e45d3f;
+  --accent-dark: #b8402a;
+  --mint: #d8eee4;
+  --shadow: 0 14px 40px rgba(31, 56, 52, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'DM Sans', sans-serif;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(circle at 88% 8%, #f9d8a9 0, transparent 27%),
+    radial-gradient(circle at 5% 94%, var(--mint) 0, transparent 30%);
+  content: '';
+  opacity: 0.65;
+}
+
+.site-header,
+main {
+  width: min(100% - 40px, 980px);
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 72px;
+}
+
+.brand {
+  color: var(--ink);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.header-note {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.hero {
+  max-width: 700px;
+  margin-bottom: 44px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 620px;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 530px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.list-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.list-heading h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+}
+
+#repository-count {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.repository-list {
+  display: grid;
+  gap: 14px;
+  padding: 18px 0 70px;
+}
+
+.repository {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  padding: 24px 26px;
+  border: 1px solid rgba(220, 228, 232, 0.9);
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.repository:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 46px rgba(31, 56, 52, 0.14);
+}
+
+.repository h3 {
+  margin: 0 0 9px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+}
+
+.repository h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.repository h3 a:hover {
+  color: var(--accent-dark);
+}
+
+.description {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.meta span:first-child::before {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: '';
+}
+
+.star-count {
+  align-self: start;
+  color: var(--accent-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status {
+  padding: 24px 0 70px;
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    padding-bottom: 54px;
+  }
+
+  .header-note {
+    display: none;
+  }
+
+  .repository {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .star-count {
+    order: -1;
+  }
+}
